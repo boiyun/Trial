@@ -13,16 +13,16 @@ import com.drake.brv.utils.grid
 import com.drake.brv.utils.setup
 import com.drake.net.Get
 import com.drake.net.utils.scope
-import com.skydoves.transformationlayout.TransformationCompat
-import com.skydoves.transformationlayout.TransformationLayout
+import com.drake.statusbar.statusPadding
 import com.trial.base.base.BaseFragment
-import com.trial.wanx.constant.UrlManager
+import com.trial.base.widget.transformationlayout.TransformationCompat
+import com.trial.base.widget.transformationlayout.TransformationLayout
 import com.trial.wanx.R
 import com.trial.wanx.bean.BaseListBean
 import com.trial.wanx.bean.GirlBean
+import com.trial.wanx.constant.UrlManager
 import com.trial.wanx.databinding.FragmentGirlBinding
 import com.trial.wanx.ui.page.activity.ImageLookActivity
-import com.zackratos.ultimatebarx.ultimatebarx.java.UltimateBarX
 
 
 /**
@@ -45,8 +45,7 @@ class GirlFragment : BaseFragment<FragmentGirlBinding>(R.layout.fragment_girl) {
     }
 
     override fun initView() {
-        UltimateBarX.addStatusBarTopPadding(binding.toolbar)
-
+        binding.toolbar.statusPadding()
         binding.rv.grid(2)
             .divider(R.drawable.divider_horizontal)
             .setup {

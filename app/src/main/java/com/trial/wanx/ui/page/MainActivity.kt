@@ -14,7 +14,6 @@ import com.trial.wanx.databinding.ActivityMainBinding
 import com.trial.wanx.ui.page.fragment.DiscoverFragment
 import com.trial.wanx.ui.page.fragment.GirlFragment
 import com.trial.wanx.ui.page.fragment.HomeFragment
-import com.trial.wanx.ui.page.fragment.HomeListFragment
 
 /**
  * <pre>

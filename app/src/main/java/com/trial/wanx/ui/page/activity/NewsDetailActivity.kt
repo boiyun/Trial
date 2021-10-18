@@ -1,21 +1,21 @@
 package com.trial.wanx.ui.page.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.Html
 import com.bumptech.glide.Glide
-import com.drake.engine.databinding.setContent
 import com.drake.net.Get
 import com.drake.net.utils.scopeNetLife
 import com.drake.serialize.intent.bundle
 import com.drake.statusbar.immersive
 import com.drake.statusbar.statusPadding
-import com.skydoves.transformationlayout.TransformationAppCompatActivity
+import com.trial.base.base.BaseActivity
+import com.trial.base.widget.transformationlayout.TransformationCompat
+import com.trial.base.widget.transformationlayout.onTransformationEndContainer
 import com.trial.wanx.R
 import com.trial.wanx.bean.NewsDetail
 import com.trial.wanx.constant.UrlManager
 import com.trial.wanx.databinding.ActivityNewsDetailBinding
 import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter
-import org.sufficientlysecure.htmltextview.HtmlResImageGetter
 
 
 /**
@@ -26,20 +26,22 @@ import org.sufficientlysecure.htmltextview.HtmlResImageGetter
  * @version: 1.0
 </pre> *
  */
-class NewsDetailActivity : TransformationAppCompatActivity() {
+class NewsDetailActivity : BaseActivity<ActivityNewsDetailBinding>(R.layout.activity_news_detail) {
     private val newsId: String by bundle()
     private val imgUrl: String by bundle()
-    private lateinit var binding: ActivityNewsDetailBinding
 
+    @SuppressLint("MissingSuperCall")
     override fun onCreate(savedInstanceState: Bundle?) {
+        onTransformationEndContainer(
+            intent.getParcelableExtra(
+                TransformationCompat.activityTransitionName
+            )
+        )
         super.onCreate(savedInstanceState)
-        binding = setContent(R.layout.activity_news_detail)
-        immersive()
-        initView()
-        initData()
     }
 
-    private fun initView() {
+    override fun initView() {
+        immersive()
         setSupportActionBar(binding.toolbar)
         binding.toolbar.setNavigationOnClickListener { supportFinishAfterTransition() }
         binding.toolbar.statusPadding()
@@ -48,7 +50,7 @@ class NewsDetailActivity : TransformationAppCompatActivity() {
 
     }
 
-    private fun initData() {
+    override fun initData() {
         scopeNetLife {
             val data = Get<NewsDetail>(UrlManager.NEWS_DETAILS_URL) {
                 param("newsId", newsId)

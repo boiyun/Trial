@@ -9,7 +9,7 @@
             type="com.trial.wanx.bean.NewsBean" />
     </data>
 
-    <com.skydoves.transformationlayout.TransformationLayout
+    <com.trial.base.widget.transformationlayout.TransformationLayout
         android:id="@+id/transformationLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,6 +70,6 @@
                     android:textColor="@color/color_999999" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
-    </com.skydoves.transformationlayout.TransformationLayout>
+    </com.trial.base.widget.transformationlayout.TransformationLayout>
 
 </layout>

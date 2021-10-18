@@ -1,7 +1,6 @@
 package com.trial.wanx.ui.page.fragment
 
 import android.os.Bundle
-import android.os.SystemClock
 import com.drake.brv.utils.divider
 import com.drake.brv.utils.linear
 import com.drake.brv.utils.setup

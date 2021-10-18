@@ -7,8 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.trial.base.R
-import com.zackratos.ultimatebarx.ultimatebarx.statusBar
+import com.drake.statusbar.immersive
 
 /**
  * <pre>
@@ -29,14 +28,7 @@ abstract class BaseActivity<B : ViewDataBinding>(@LayoutRes contentLayoutId: Int
         setContentView(rootView)
         mContext = this
         // 设置状态栏
-        statusBar {
-            // 布局是否侵入状态栏（true 不侵入，false 侵入）
-            fitWindow = false
-            // 状态栏背景颜色（资源 id）
-            colorRes = R.color.color_eaeaea
-            light = false
-            lvlColorRes = R.color.color_eaeaea
-        }
+        immersive()
         binding = DataBindingUtil.bind(rootView)!!
         initView()
         initData()

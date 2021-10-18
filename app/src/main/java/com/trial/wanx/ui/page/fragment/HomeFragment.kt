@@ -8,13 +8,13 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.drake.net.Get
 import com.drake.net.utils.scopeNetLife
+import com.drake.statusbar.statusPadding
 import com.trial.base.adapter.VPAdapter
 import com.trial.base.base.BaseFragment
 import com.trial.wanx.R
 import com.trial.wanx.bean.NewsBean
 import com.trial.wanx.constant.UrlManager
 import com.trial.wanx.databinding.FragmentHomeBinding
-import com.zackratos.ultimatebarx.ultimatebarx.java.UltimateBarX
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.UIUtil
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
@@ -47,7 +47,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     override fun initView() {
-        UltimateBarX.addStatusBarTopPadding(binding.toolbar)
+        binding.toolbar.statusPadding()
     }
 
     override fun initData() {

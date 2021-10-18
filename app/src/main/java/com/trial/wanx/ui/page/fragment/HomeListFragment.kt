@@ -9,9 +9,9 @@ import com.drake.brv.utils.setup
 import com.drake.net.Get
 import com.drake.net.utils.scope
 import com.drake.serialize.intent.bundle
-import com.skydoves.transformationlayout.TransformationCompat
-import com.skydoves.transformationlayout.TransformationLayout
 import com.trial.base.base.BaseFragment
+import com.trial.base.widget.transformationlayout.TransformationCompat
+import com.trial.base.widget.transformationlayout.TransformationLayout
 import com.trial.wanx.R
 import com.trial.wanx.bean.NewsBean
 import com.trial.wanx.constant.UrlManager
