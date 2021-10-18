@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="m"
+            type="com.trial.wanx.bean.NewsBean" />
+    </data>
+
+    <com.skydoves.transformationlayout.TransformationLayout
+        android:id="@+id/transformationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:transformation_duration="500">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/item_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/color_f5f5f5"
+            app:cardCornerRadius="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_news"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:scaleType="center"
+                    app:imageUrl="@{m.imgList[0]}"
+                    app:shapeAppearanceOverlay="@style/CircleImageStyle" />
+
+                <TextView
+                    android:id="@+id/tv_news_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/iv_news"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/iv_news"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:text="@{m.title}"
+                    android:textColor="@color/color_333333" />
+
+                <TextView
+                    android:id="@+id/tv_news_source"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_news_time"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/iv_news"
+                    android:text="@{m.source}"
+                    android:textColor="@color/color_666666" />
+
+                <TextView
+                    android:id="@+id/tv_news_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/iv_news"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/iv_news"
+                    android:text="@{m.postTime}"
+                    android:textColor="@color/color_999999" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </com.skydoves.transformationlayout.TransformationLayout>
+
+</layout>

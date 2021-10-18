@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 设置栏 -->
+    <declare-styleable name="SettingBar">
+        <!-- 左边 -->
+        <attr name="bar_leftText" format="string" />
+        <attr name="bar_leftHint" format="string" />
+        <attr name="bar_leftIcon" format="reference" />
+        <attr name="bar_leftColor" format="color" />
+        <attr name="bar_leftSize" format="dimension" />
+        <!-- 右边 -->
+        <attr name="bar_rightText" format="string" />
+        <attr name="bar_rightHint" format="string" />
+        <attr name="bar_rightIcon" format="reference" />
+        <attr name="bar_rightColor" format="color" />
+        <attr name="bar_rightSize" format="dimension" />
+        <!-- 分割线 -->
+        <attr name="bar_lineVisible" format="boolean" />
+        <attr name="bar_lineColor" format="reference|color" />
+        <attr name="bar_lineSize" format="dimension" />
+        <attr name="bar_lineMargin" format="dimension" />
+    </declare-styleable>
+
+
+    <attr name="srlStyle" format="reference" /><!--样式-->
+
+    <attr name="srlDrawableSize" format="dimension" /><!--图片尺寸-->
+    <attr name="srlDrawableArrowSize" format="dimension" /><!--箭头图片尺寸-->
+    <attr name="srlDrawableProgressSize" format="dimension" /><!--箭头图片尺寸-->
+    <attr name="srlDrawableMarginRight" format="dimension" /><!--图片和文字的间距-->
+    <attr name="srlTextSizeTitle" format="dimension" /><!--标题字体-->
+    <attr name="srlTextSizeTime" format="dimension" /><!--时间字体-->
+    <attr name="srlFinishDuration" format="integer" /><!--完成时停留时间-->
+    <attr name="srlPrimaryColor" format="color" /><!--主要颜色-->
+    <attr name="srlAccentColor" format="color" /><!--强调颜色-->
+    <attr name="srlDrawableArrow" format="reference" /><!--箭头图片-->
+    <attr name="srlDrawableProgress" format="reference" /><!--转动图片-->
+    <attr name="srlEnableHorizontalDrag" format="boolean" /><!--支持水平拖动-->
+
+    <attr name="srlTextPulling" format="string" />
+    <attr name="srlTextLoading" format="string" />
+    <attr name="srlTextRelease" format="string" />
+    <attr name="srlTextFinish" format="string" />
+    <attr name="srlTextFailed" format="string" />
+    <attr name="srlTextUpdate" format="string" />
+    <attr name="srlTextSecondary" format="string" />
+    <attr name="srlTextRefreshing" format="string" />
+    <attr name="srlTextNothing" format="string" />
+
+    <attr name="srlClassicsSpinnerStyle" format="enum">
+        <enum name="Translate" value="0" /><!--平行移动-->
+        <enum name="Scale" value="1" /><!--拉伸形变-->
+        <enum name="FixedBehind" value="2" /><!--固定在背后-->
+    </attr>
+
+    <attr name="layout_srlSpinnerStyle" format="enum">
+        <enum name="Translate" value="0" /><!--平行移动-->
+        <enum name="Scale" value="1" /><!--拉伸形变-->
+        <enum name="FixedBehind" value="2" /><!--固定在背后-->
+        <enum name="FixedFront" value="3" /><!--固定在前面-->
+        <enum name="MatchLayout" value="4" /><!--填满布局-->
+    </attr>
+
+    <declare-styleable name="PageNavigationView">
+        <attr name="NavigationPaddingTop" format="dimension"/>
+        <attr name="NavigationPaddingBottom" format="dimension"/>
+    </declare-styleable>
+</resources>
