@@ -8,6 +8,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.drake.statusbar.immersive
+import com.trial.base.R
 
 /**
  * <pre>
@@ -28,7 +29,7 @@ abstract class BaseActivity<B : ViewDataBinding>(@LayoutRes contentLayoutId: Int
         setContentView(rootView)
         mContext = this
         // 设置状态栏
-        immersive()
+        immersive(resources.getColor(R.color.main_color),true)
         binding = DataBindingUtil.bind(rootView)!!
         initView()
         initData()

@@ -9,34 +9,25 @@
             type="com.trial.wanx.bean.GirlBean" />
     </data>
 
-    <com.trial.base.widget.transformationlayout.TransformationLayout
-        android:id="@+id/transformationLayout"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:transformation_duration="500">
+        android:layout_margin="4dp"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/color_f5f5f5"
+        app:cardCornerRadius="8dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/item_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:foreground="?attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/color_f5f5f5"
-            app:cardCornerRadius="8dp">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_girl"
+            android:layout_width="192dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:scaleType="center"
+            app:imageUrl="@{m.imageUrl}"
+            app:shapeAppearanceOverlay="@style/CircleImageStyle" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_girl"
-                android:layout_width="192dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:scaleType="center"
-                app:imageUrl="@{m.imageUrl}"
-                app:shapeAppearanceOverlay="@style/CircleImageStyle" />
-
-
-        </androidx.cardview.widget.CardView>
-
-    </com.trial.base.widget.transformationlayout.TransformationLayout>
+    </androidx.cardview.widget.CardView>
 
 
 </layout>

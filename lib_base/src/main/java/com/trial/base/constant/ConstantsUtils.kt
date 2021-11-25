@@ -1,7 +1,7 @@
 package com.trial.base.constant
 
 import android.os.Build
-import com.trial.base.utils.Utils
+import com.trial.base.base.BaseApplication
 
 /**
  * <pre>
@@ -17,17 +17,16 @@ object ConstantsUtils {
      */
     const val MAX_TIME = 1000 * 60 * 60 * 24 * 7
 
-    // 设备厂商
-    // 设备型号
-    // 系统版本
-    // SDK版本
     @JvmStatic
     val logHeader: String
         get() {
             var versionName = ""
             var versionCode = 0
             try {
-                val pi = Utils.getApp().packageManager.getPackageInfo(Utils.getApp().packageName, 0)
+                val pi = BaseApplication.instance.packageManager.getPackageInfo(
+                    BaseApplication.instance.packageName,
+                    0
+                )
                 if (pi != null) {
                     versionName = pi.versionName
                     versionCode = pi.versionCode

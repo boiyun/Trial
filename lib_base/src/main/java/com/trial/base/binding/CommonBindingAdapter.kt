@@ -5,10 +5,8 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import com.trial.base.utils.ClickUtils
 
 /**
  * <pre>
@@ -55,37 +53,4 @@ object CommonBindingAdapter {
         view.isSelected = select
     }
 
-    @JvmStatic
-    @BindingAdapter(value = ["onClickWithDebouncing"], requireAll = false)
-    fun onClickWithDebouncing(view: View?, clickListener: View.OnClickListener?) {
-        ClickUtils.applySingleDebouncing(view, clickListener)
-    }
-
-    @JvmStatic
-    @BindingAdapter(value = ["adjustWidth"])
-    fun adjustWidth(view: View, adjustWidth: Int) {
-        val params = view.layoutParams
-        params.width = adjustWidth
-        view.layoutParams = params
-    }
-
-    @JvmStatic
-    @BindingAdapter(value = ["adjustHeight"])
-    fun adjustHeight(view: View, adjustHeight: Int) {
-        val params = view.layoutParams
-        params.height = adjustHeight
-        view.layoutParams = params
-    }
-
-    @JvmStatic
-    @BindingAdapter(value = ["toolbarNavigationClick"])
-    fun setNavigationClick(toolbar: Toolbar, listener: View.OnClickListener?) {
-        toolbar.setNavigationOnClickListener(listener)
-    }
-
-    @JvmStatic
-    @BindingAdapter(value = ["toolbarMenuItemClick"])
-    fun setMenuItemClick(toolbar: Toolbar, listener: Toolbar.OnMenuItemClickListener?) {
-        toolbar.setOnMenuItemClickListener(listener)
-    }
 }

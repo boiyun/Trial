@@ -14,8 +14,14 @@ import androidx.lifecycle.ViewModelStoreOwner
  */
 open class BaseApplication : Application(), ViewModelStoreOwner {
     private var mAppViewModelStore: ViewModelStore? = null
+    companion object {
+        @JvmStatic
+        lateinit var instance: BaseApplication
+            private set
+    }
     override fun onCreate() {
         super.onCreate()
+        instance = this
         mAppViewModelStore = ViewModelStore()
     }
 

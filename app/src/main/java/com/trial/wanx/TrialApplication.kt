@@ -19,7 +19,6 @@ import com.elvishew.xlog.printer.file.backup.NeverBackupStrategy
 import com.elvishew.xlog.printer.file.clean.FileLastModifiedCleanStrategy
 import com.elvishew.xlog.printer.file.naming.DateFileNameGenerator
 import com.elvishew.xlog.printer.file.writer.SimpleWriter
-import com.hjq.toast.ToastUtils
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.ClassicsHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -30,7 +29,6 @@ import com.trial.base.constant.ConstantsUtils.logHeader
 import com.trial.base.constant.PathConstants
 import com.trial.base.constant.PathConstants.getStoragePath
 import com.trial.base.http.GsonConvert
-import com.trial.base.utils.Utils
 import com.trial.wanx.constant.UrlManager
 import org.litepal.LitePal.initialize
 import java.io.File
@@ -49,7 +47,6 @@ class TrialApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        Utils.init(this)
 
         //数据库初始化
         initialize(this)
@@ -115,8 +112,5 @@ class TrialApplication : BaseApplication() {
                 }
             })
         }
-        // 初始化 Toast
-        ToastUtils.init(this);
-
     }
 }

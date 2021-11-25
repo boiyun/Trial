@@ -6,8 +6,6 @@ import com.drake.serialize.intent.bundle
 import com.drake.statusbar.immersive
 import com.github.chrisbanes.photoview.PhotoView
 import com.trial.base.base.BaseActivity
-import com.trial.base.widget.transformationlayout.TransformationCompat
-import com.trial.base.widget.transformationlayout.onTransformationEndContainer
 import com.trial.wanx.R
 import com.trial.wanx.databinding.ActivityImageLookBinding
 
@@ -24,16 +22,11 @@ class ImageLookActivity : BaseActivity<ActivityImageLookBinding>(R.layout.activi
     private val imgUrl: String by bundle()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        onTransformationEndContainer(
-            intent.getParcelableExtra(
-                TransformationCompat.activityTransitionName
-            )
-        )
         super.onCreate(savedInstanceState)
     }
 
     override fun initView() {
-        immersive()
+        immersive(darkMode = false)
         val photoview = findViewById<PhotoView>(R.id.photoview)
         Glide.with(photoview.context.applicationContext).load(imgUrl).into(photoview)
         photoview.setOnClickListener {

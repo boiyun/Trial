@@ -1,7 +1,7 @@
 package com.trial.base.constant
 
 import android.os.Environment
-import com.trial.base.utils.Utils
+import com.trial.base.base.BaseApplication
 import java.io.File
 
 /**
@@ -21,11 +21,7 @@ object PathConstants {
 
     @JvmStatic
     fun getStoragePath(directoryName: String): String {
-        var directoryDir = ""
-        if (Utils.getApp() != null) {
-            directoryDir = Utils.getApp().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)
-                .toString() + File.separator + directoryName + File.separator
-        }
-        return directoryDir
+        return BaseApplication.instance.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)
+            .toString() + File.separator + directoryName + File.separator
     }
 }

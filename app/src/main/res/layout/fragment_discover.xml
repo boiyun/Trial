@@ -13,10 +13,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:background="@color/color_eaeaea"
+            android:background="@color/main_color"
             app:title="段子"
             android:theme="@style/ToolbarTheme"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/black" />
 
         <com.drake.brv.PageRefreshLayout
             android:id="@+id/page_refresh"

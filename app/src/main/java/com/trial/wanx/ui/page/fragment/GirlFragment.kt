@@ -1,7 +1,6 @@
 package com.trial.wanx.ui.page.fragment
 
 import android.app.SharedElementCallback
-import android.content.Intent
 import android.graphics.Matrix
 import android.graphics.RectF
 import android.os.Bundle
@@ -13,10 +12,8 @@ import com.drake.brv.utils.grid
 import com.drake.brv.utils.setup
 import com.drake.net.Get
 import com.drake.net.utils.scope
-import com.drake.statusbar.statusPadding
+import com.drake.serialize.intent.openActivity
 import com.trial.base.base.BaseFragment
-import com.trial.base.widget.transformationlayout.TransformationCompat
-import com.trial.base.widget.transformationlayout.TransformationLayout
 import com.trial.wanx.R
 import com.trial.wanx.bean.BaseListBean
 import com.trial.wanx.bean.GirlBean
@@ -45,27 +42,14 @@ class GirlFragment : BaseFragment<FragmentGirlBinding>(R.layout.fragment_girl) {
     }
 
     override fun initView() {
-        binding.toolbar.statusPadding()
         binding.rv.grid(2)
             .divider(R.drawable.divider_horizontal)
             .setup {
-                var previousTime = SystemClock.elapsedRealtime()
                 addType<GirlBean>(R.layout.item_girl_list)
-                onClick(R.id.transformationLayout) {
-                    val now = SystemClock.elapsedRealtime()
-                    val transformationLayout =
-                        findView<TransformationLayout>(R.id.transformationLayout)
-                    if (now - previousTime >= transformationLayout.duration) {
-                        val intent = Intent(context, ImageLookActivity::class.java)
-                        intent.putExtra("imgUrl", getModel<GirlBean>().imageUrl)
-
-                        TransformationCompat.startActivity(
-                            transformationLayout,
-                            intent
-                        )
-                        previousTime = now
-                    }
-
+                onClick(R.id.item_container) {
+                    openActivity<ImageLookActivity>(
+                        "imgUrl" to getModel<GirlBean>().imageUrl
+                    )
                 }
             }
         binding.pageRefresh.onRefresh {
@@ -76,7 +60,7 @@ class GirlFragment : BaseFragment<FragmentGirlBinding>(R.layout.fragment_girl) {
                 val data = await.list
                 addData(data, hasMore = { index < await.totalPage }, isEmpty = { data.isEmpty() })
             }
-        }
+        }.showLoading()
         //返回页面时图片闪烁问题
         activity?.setExitSharedElementCallback(object : SharedElementCallback() {
             override fun onCaptureSharedElementSnapshot(
@@ -97,7 +81,6 @@ class GirlFragment : BaseFragment<FragmentGirlBinding>(R.layout.fragment_girl) {
 
 
     override fun initData() {
-        binding.pageRefresh.showLoading()
     }
 
 }

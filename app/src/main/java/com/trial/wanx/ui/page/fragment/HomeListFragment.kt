@@ -9,13 +9,14 @@ import com.drake.brv.utils.setup
 import com.drake.net.Get
 import com.drake.net.utils.scope
 import com.drake.serialize.intent.bundle
+import com.drake.serialize.intent.openActivity
 import com.trial.base.base.BaseFragment
-import com.trial.base.widget.transformationlayout.TransformationCompat
-import com.trial.base.widget.transformationlayout.TransformationLayout
 import com.trial.wanx.R
+import com.trial.wanx.bean.GirlBean
 import com.trial.wanx.bean.NewsBean
 import com.trial.wanx.constant.UrlManager
 import com.trial.wanx.databinding.FragmentHomeListBinding
+import com.trial.wanx.ui.page.activity.ImageLookActivity
 import com.trial.wanx.ui.page.activity.NewsDetailActivity
 
 
@@ -44,32 +45,16 @@ class HomeListFragment : BaseFragment<FragmentHomeListBinding>(R.layout.fragment
         binding.rv.linear()
             .divider(R.drawable.divider_horizontal)
             .setup {
-                var previousTime = SystemClock.elapsedRealtime()
                 addType<NewsBean>(R.layout.item_news_list)
-                onClick(R.id.transformationLayout) {
+                onClick(R.id.item_container) {
                     val model = getModel<NewsBean>()
                     if (model.newsId == "此类型无详情id") {
                         return@onClick
                     }
-                    val now = SystemClock.elapsedRealtime()
-                    val transformationLayout =
-                        findView<TransformationLayout>(R.id.transformationLayout)
-                    if (now - previousTime >= transformationLayout.duration) {
-                        val intent = Intent(context, NewsDetailActivity::class.java)
-
-                        intent.putExtra("newsId", model.newsId)
-                        if (model.imgList.isNullOrEmpty()) {
-                            intent.putExtra("imgUrl", "")
-                        } else {
-                            intent.putExtra("imgUrl", model.imgList[0])
-                        }
-
-                        TransformationCompat.startActivity(
-                            transformationLayout,
-                            intent
-                        )
-                        previousTime = now
-                    }
+                    openActivity<NewsDetailActivity>(
+                        "imgUrl" to model.imgList[0],
+                        "newsId" to model.newsId
+                    )
                 }
             }
         binding.pageRefresh.onRefresh {

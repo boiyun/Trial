@@ -15,9 +15,9 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                android:background="@color/color_eaeaea"
+                android:background="@color/main_color"
                 android:theme="@style/ToolbarTheme"
-                app:titleTextColor="@color/white"
+                app:titleTextColor="@color/black"
                 app:title="首页" />
 
             <net.lucode.hackware.magicindicator.MagicIndicator

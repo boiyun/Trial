@@ -10,48 +10,45 @@
             type="com.trial.wanx.bean.GirlBean" />
     </data>
 
-    <com.trial.base.widget.transformationlayout.TransformationLayout
-        android:id="@+id/transformationLayout"
+
+    <com.lihang.ShadowLayout
+        android:id="@+id/item_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:transformation_duration="500">
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        app:hl_cornerRadius="15dp"
+        app:hl_layoutBackground="@color/white"
+        app:hl_layoutBackground_true="@color/color_f5f5f5"
+        app:hl_shapeMode="pressed">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/item_container"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:foreground="?attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/color_f5f5f5"
-            app:cardCornerRadius="8dp">
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_news_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:lineSpacingExtra="5dp"
+                android:text="@{m.content}"
+                android:textColor="@color/color_333333"
+                android:textSize="16sp"
+                tools:text="afdsfads" />
 
-                <TextView
-                    android:id="@+id/tv_news_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{m.content}"
-                    android:lineSpacingExtra="5dp"
-                    android:textColor="@color/color_333333"
-                    android:textSize="16sp"
-                    tools:text="afdsfads" />
-
-                <TextView
-                    android:id="@+id/tv_news_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{m.updateTime}"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/color_999999"
-                    android:textSize="14sp"
-                    tools:text="afdsfads" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </com.trial.base.widget.transformationlayout.TransformationLayout>
+            <TextView
+                android:id="@+id/tv_news_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@{m.updateTime}"
+                android:textColor="@color/color_999999"
+                android:textSize="14sp"
+                tools:text="afdsfads" />
+        </LinearLayout>
+    </com.lihang.ShadowLayout>
 
 </layout>

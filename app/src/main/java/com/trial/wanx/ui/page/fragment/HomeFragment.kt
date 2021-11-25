@@ -47,7 +47,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     override fun initView() {
-        binding.toolbar.statusPadding()
     }
 
     override fun initData() {

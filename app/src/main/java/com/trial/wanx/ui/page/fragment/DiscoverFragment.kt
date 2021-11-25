@@ -34,11 +34,12 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(R.layout.fragment
     }
 
     override fun initView() {
-        binding.toolbar.statusPadding()
         binding.rv.linear()
             .divider(R.drawable.divider_horizontal)
             .setup {
                 addType<GirlBean>(R.layout.item_jokes_list)
+                onClick(R.id.item_container){
+                }
             }
         binding.pageRefresh.onRefresh {
             scope {
