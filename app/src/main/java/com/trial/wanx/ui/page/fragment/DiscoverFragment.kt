@@ -38,21 +38,20 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>(R.layout.fragment
             .divider(R.drawable.divider_horizontal)
             .setup {
                 addType<GirlBean>(R.layout.item_jokes_list)
-                onClick(R.id.item_container){
-                }
             }
+    }
+
+    override fun initData() {
         binding.pageRefresh.onRefresh {
             scope {
                 val await = Get<BaseListBean>(UrlManager.JOKES_LIST_URL) {
                     param("page", index)
                 }.await()
                 val data = await.list
-                addData(data, hasMore = { index < await.totalPage }, isEmpty = { data.isEmpty() })
+                addData(data,
+                    hasMore = { index < await.totalPage },
+                    isEmpty = { data.isEmpty() })
             }
-        }
-    }
-
-    override fun initData() {
-        binding.pageRefresh.showLoading()
+        }.showLoading()
     }
 }

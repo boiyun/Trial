@@ -40,7 +40,7 @@ dependencies {
     api 'com.google.android.material:material:1.4.0'
     api 'androidx.annotation:annotation:1.2.0'
     api 'androidx.constraintlayout:constraintlayout:2.1.1'
-    api 'androidx.viewpager:viewpager:1.0.0'
+    api 'androidx.viewpager2:viewpager2:1.0.0'
     api 'androidx.multidex:multidex:2.0.1'
     api 'androidx.recyclerview:recyclerview:1.2.1'
     api 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
@@ -58,8 +58,8 @@ dependencies {
     //gson https://github.com/google/gson
     api 'com.google.code.gson:gson:2.8.9'
 
-    //看图 https://github.com/Baseflow/PhotoView
-    api 'com.github.chrisbanes:PhotoView:2.3.0'
+    //各种弹框 https://github.com/li-xiaojun/XPopup
+    api 'com.github.li-xiaojun:XPopup:2.6.7'
 
     //数据库 https://github.com/guolindev/LitePal
     api 'org.litepal.guolindev:core:3.2.3'
@@ -99,5 +99,6 @@ dependencies {
 
     //圆角、阴影 https://github.com/lihangleo2/ShadowLayout
     api 'com.github.lihangleo2:ShadowLayout:3.2.4'
+
     api 'org.sufficientlysecure:html-textview:4.0'
 }

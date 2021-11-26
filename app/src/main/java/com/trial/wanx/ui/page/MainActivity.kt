@@ -6,7 +6,7 @@ import android.graphics.RectF
 import android.os.Parcelable
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.trial.base.adapter.MainPageAdapter
+import com.trial.base.adapter.VPAdapter
 import com.trial.base.base.BaseActivity
 import com.trial.base.widget.bottombar.NavigationController
 import com.trial.wanx.R
@@ -35,8 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             girlFragment,
             discoverFragment
         )
-        binding.vpContent.adapter = MainPageAdapter(supportFragmentManager, fragmentList)
-        binding.vpContent.offscreenPageLimit = 3
+        binding.vpContent.adapter = VPAdapter(supportFragmentManager, fragmentList)
         val navigationController: NavigationController = binding.navTab.material()
             .addItem(
                 R.drawable.icon_tab_home,

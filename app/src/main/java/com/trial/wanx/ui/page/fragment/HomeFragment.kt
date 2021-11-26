@@ -62,8 +62,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 val vpAdapter = VPAdapter(childFragmentManager, mFragmentList)
                 binding.vpHome.run {
                     adapter = vpAdapter
-                    offscreenPageLimit = await.size
-                    currentItem = 0
                 }
             }
             if (mTitleDataList.isNotEmpty()) {
@@ -106,7 +104,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             }
         }
         binding.tabHome.navigator = commonNavigator
-        ViewPagerHelper.bind(binding.tabHome, binding.vpHome);
+        ViewPagerHelper.bind(binding.tabHome, binding.vpHome)
 
     }
 

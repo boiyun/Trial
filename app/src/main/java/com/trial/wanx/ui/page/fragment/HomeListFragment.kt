@@ -1,8 +1,6 @@
 package com.trial.wanx.ui.page.fragment
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.SystemClock
 import com.drake.brv.utils.divider
 import com.drake.brv.utils.linear
 import com.drake.brv.utils.setup
@@ -12,11 +10,9 @@ import com.drake.serialize.intent.bundle
 import com.drake.serialize.intent.openActivity
 import com.trial.base.base.BaseFragment
 import com.trial.wanx.R
-import com.trial.wanx.bean.GirlBean
 import com.trial.wanx.bean.NewsBean
 import com.trial.wanx.constant.UrlManager
 import com.trial.wanx.databinding.FragmentHomeListBinding
-import com.trial.wanx.ui.page.activity.ImageLookActivity
 import com.trial.wanx.ui.page.activity.NewsDetailActivity
 
 
@@ -65,12 +61,11 @@ class HomeListFragment : BaseFragment<FragmentHomeListBinding>(R.layout.fragment
                 }.await()
                 addData(data, isEmpty = { data.isEmpty() })
             }
-        }
+        }.showLoading()
     }
 
 
     override fun initData() {
-        binding.pageRefresh.showLoading()
     }
 
 }

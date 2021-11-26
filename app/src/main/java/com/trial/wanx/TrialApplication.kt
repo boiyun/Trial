@@ -83,9 +83,9 @@ class TrialApplication : BaseApplication() {
 
         //StateLayout
         StateConfig.apply {
-            emptyLayout = R.layout.layout_empty
-            errorLayout = R.layout.layout_error
-            loadingLayout = R.layout.layout_loading
+            emptyLayout = R.layout.layout_state_empty
+            errorLayout = R.layout.layout_state_error
+            loadingLayout = R.layout.layout_state_loading
 
             setRetryIds(R.id.btn_reload)
         }
